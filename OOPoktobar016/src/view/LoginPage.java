@@ -1,5 +1,6 @@
 package view;
 
+import controller.BtnLoginController;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -24,6 +25,7 @@ public class LoginPage extends Stage {
 		lblMailInput = new Label("Unesite svoj email: ");
 		tfMailTextFileld = new TextField();
 		btnLogin = new Button("Pregled Poruka");
+			btnLogin.setOnAction(new BtnLoginController(baza, this));
 		
 		HBox layout = new HBox(5);
 			layout.getChildren().addAll(lblMailInput,
