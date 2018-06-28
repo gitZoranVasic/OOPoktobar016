@@ -2,6 +2,10 @@ package model;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.WriteAbortedException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -65,6 +69,27 @@ public class Baza {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+	}
+	
+	public void dodajMailUBazu(Email email) {
+		try {
+			FileWriter write = new FileWriter("email.txt", true);
+			PrintWriter print = new PrintWriter(write);
+			StringBuilder build = new StringBuilder();
+				build.append(email.getEmail_sendFrom()+ ";" + email.getEmail_sendTo() + ";" + email.getEmail_header() + ";" + 
+							 email.getEmail_content() + ";" + email.getEmail_date().toString());
+			print.println();
+			print.print(build);
+			
+			print.close();
+			write.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	
 		
 	}
 	

@@ -1,19 +1,22 @@
 package application;
 	
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
+import javaFixEs.Datum;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import model.Baza;
+import model.Email;
 import view.LoginPage;
-import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
 
 
 public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		
-		Baza.getInstance();
-		LoginPage.getInstance();
+			Baza.getInstance();
+			LoginPage.getInstance();
 		
 		
 	}
