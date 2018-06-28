@@ -1,6 +1,8 @@
 package view;
 
+import controller.BtnNewMessage;
 import controller.BtnPrikaziController;
+import controller.BtnPrikaziTekst;
 import javaFixEs.Datum;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -46,7 +48,9 @@ public class InboxPage extends Stage {
 		btnPrikazi = new Button("Prikazi");
 			btnPrikazi.setOnAction(new BtnPrikaziController(Baza.getInstance(), this));
 		btnPrikaziTekst = new Button("Prikazi tekst");
+			btnPrikaziTekst.setOnAction(new BtnPrikaziTekst(Baza.getInstance(), this));
 		btnNovaPoruka = new Button("Nova poruka");
+			btnNovaPoruka.setOnAction(new BtnNewMessage(this));
 		
 			//Text Area setup
 		taEmailText = new TextArea();
@@ -72,7 +76,6 @@ public class InboxPage extends Stage {
 			TableColumn<Email, String> tcTitle = new TableColumn<Email, String>("Naslov");
 				tcTitle.setCellValueFactory(new PropertyValueFactory<>("email_header"));
 				tvEmail.getColumns().addAll(tcFrom,tcTo,tcDate,tcTitle);
-				System.out.println(thisUsr.getUserAccount_inboxMails().get(0));
 				tvEmail.setItems(thisUsr.getUserAccount_inboxMails());
 				tvEmail.setMaxHeight(200);
 		
@@ -125,6 +128,31 @@ public class InboxPage extends Stage {
 		lblAmountOfMails.setText("Ukupno poruka: " + this.thisUsr.getUserAccount_inboxMails().size() + " dolazne i " + thisUsr.getUserAccount_sendMails().size() + " odlazne");
 	}
 	
+	public Label getLblAmountOfMails() {
+		return lblAmountOfMails;
+	}
+
+
+	public Button getBtnPrikazi() {
+		return btnPrikazi;
+	}
+
+
+	public Button getBtnPrikaziTekst() {
+		return btnPrikaziTekst;
+	}
+
+
+	public Button getBtnNovaPoruka() {
+		return btnNovaPoruka;
+	}
+
+
+	public TextArea getTaEmailText() {
+		return taEmailText;
+	}
+
+
 	public static InboxPage getInstance(UserAccount thisUsr) {
 		if(instance == null) instance = new InboxPage(thisUsr);
 		return instance;

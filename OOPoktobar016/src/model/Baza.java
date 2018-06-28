@@ -41,6 +41,7 @@ public class Baza {
 				//provera korisnickih naloga!
 				UserAccount tempUserFrom = new UserAccount(parseMain[0]);
 				UserAccount tempUserTo   = new UserAccount(parseMain[1]);
+			
 				if(!userAccounts.contains(tempUserFrom)) 
 					userAccounts.add(tempUserFrom);
 				if(!userAccounts.contains(tempUserTo)) 

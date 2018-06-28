@@ -23,7 +23,7 @@ public class UserAccount {
 	public boolean equals(Object obj) {
 		if(obj instanceof UserAccount) {
 			UserAccount tempUsr = (UserAccount) obj;
-			if(tempUsr.getUserAccount_email().contains(userAccount_email)) return true;
+			if(tempUsr.getUserAccount_email().equals(userAccount_email)) return true;
 		}
 		return false;
 	}
