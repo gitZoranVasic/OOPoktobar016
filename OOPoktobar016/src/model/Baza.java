@@ -48,12 +48,14 @@ public class Baza {
 				
 				//put the mails where they belong
 				userAccounts.get(userAccounts.indexOf(tempUserFrom)).getUserAccount_sendMails().add(email);
-				userAccounts.get(userAccounts.indexOf(tempUserTo)).getUserAccount_sendMails().add(email);
+				userAccounts.get(userAccounts.indexOf(tempUserTo)).getUserAccount_inboxMails().add(email);
 				
 				
 			}//while
 			
-			
+			/*for (Email email : userAccounts.get(1).getUserAccount_inboxMails()) {
+				System.out.println(email);
+			}*/
 			
 			buffer.close();
 			load.close();

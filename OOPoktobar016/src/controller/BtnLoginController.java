@@ -2,8 +2,11 @@ package controller;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import model.Baza;
 import model.UserAccount;
+import view.InboxPage;
 import view.LoginPage;
 
 public class BtnLoginController implements EventHandler<ActionEvent>{
@@ -22,8 +25,14 @@ public class BtnLoginController implements EventHandler<ActionEvent>{
 	}
 	
 	private void doIt() {
-		if(baza.getUserAccounts().contains(new UserAccount(loginPage.getTfMailTextFileld().getText()))) {
-			System.out.println("Ovde!!!");
+		UserAccount tempAcc = new UserAccount(loginPage.getTfMailTextFileld().getText());
+		if(baza.getUserAccounts().contains(tempAcc)) {
+			InboxPage.getInstance(baza.getUserAccounts().get(baza.getUserAccounts().indexOf(tempAcc)));
+			loginPage.close();
+		}else {
+			Alert alert = new Alert(AlertType.WARNING);
+			alert.setContentText("Uneti email ne postoji!");
+			alert.show();
 		}
 	}
 	

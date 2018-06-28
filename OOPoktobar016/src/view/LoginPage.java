@@ -37,6 +37,7 @@ public class LoginPage extends Stage {
 		setScene(sc);
 		setWidth(600);
 		setHeight(200);
+		setResizable(false);
 		setTitle("Ispit OOP - oktobar");
 		show();
 

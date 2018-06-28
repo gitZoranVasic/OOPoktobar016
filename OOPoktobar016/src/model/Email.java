@@ -34,7 +34,11 @@ public class Email {
 		return email_date;
 	}
 	
-	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "from: " + email_sendFrom + " to: " + email_sendTo + " naslov: " + email_header;
+	}
 	
 	
 	
